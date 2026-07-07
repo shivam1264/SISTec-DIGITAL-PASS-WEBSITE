@@ -3271,7 +3271,7 @@ p {
 .developer-card {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 450px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow-clay-card);
@@ -3289,6 +3289,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -3475,4 +3476,277 @@ p {
   100% { left: 150%; }
 }
 
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
 
+/* Max Width 1200px (Smaller Laptops) */
+@media (max-width: 1200px) {
+  .hero-grid, .showcase-grid, .simulator-panel-grid, .features-split-layout, .download-card-split, .video-guide-grid {
+    gap: 20px;
+  }
+}
+
+/* Hide menu toggle on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Max Width 992px (Tablets) */
+@media (max-width: 992px) {
+  /* Navigation */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+  }
+  .menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border-top: 1px solid #f1f5f9;
+  }
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav-menu li {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  /* Buttons */
+  .btn-nav-download {
+    display: none; /* Hide download button in navbar on mobile, keep menu tidy */
+  }
+
+  /* Typography */
+  .hero h1 {
+    font-size: 42px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  
+  /* Hero */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content {
+    order: 1;
+    padding-right: 0;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .mockup-container {
+    order: 2;
+    margin-top: 30px;
+  }
+  .hero-tagline {
+    margin: 0 auto 16px auto;
+  }
+  
+  /* Metrics Banner */
+  .metrics-banner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .metric-divider {
+    display: none;
+  }
+  .metric-item {
+    flex: 1 1 40%;
+  }
+
+  /* App Screens Showcase */
+  .showcase-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .showcase-menu {
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  /* Features Split */
+  .features-split-layout {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .features-device-panel {
+    min-height: 400px;
+    margin-top: 40px;
+  }
+  
+  /* Interactive Simulator */
+  .simulator-panel-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Video Guide */
+  .video-guide-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .video-highlight-card {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .video-mockup-wrapper {
+    margin: 40px auto 0 auto;
+  }
+  
+  /* Campus Roles */
+  .role-tabs-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .role-panel {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  .role-panel-info {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .role-benefit-list {
+    text-align: left;
+  }
+  
+  /* Download Section */
+  .download-card-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .app-tech-specs {
+    justify-content: center;
+  }
+  .download-feature-checklist {
+    text-align: left;
+    display: inline-block;
+  }
+  .download-action-side {
+    margin-top: 30px;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* Max Width 768px (Mobile Phones) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  .btn-store, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .metric-item {
+    flex: 1 1 100%;
+  }
+  
+  .workflow-flowgrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-links-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-logo-box {
+    margin: 0 auto 20px auto;
+  }
+}
+
+/* Max Width 480px (Small Phones) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  .hero-sub {
+    font-size: 14px;
+  }
+  .section-title {
+    font-size: 24px;
+  }
+  .section-desc {
+    font-size: 14px;
+  }
+  
+  .role-tabs-bar {
+    flex-direction: column;
+  }
+  .role-tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .app-tech-specs {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .download-card-split {
+    padding: 20px;
+  }
+}
