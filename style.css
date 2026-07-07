@@ -3750,3 +3750,17 @@ p {
     padding: 20px;
   }
 }
+
+/* --- PERFORMANCE OPTIMIZATIONS FOR MOBILE --- */
+/* Heavy CSS filters and backdrop blurs cause severe scrolling lag on mobile GPUs. 
+   Disabling the background clay blobs completely resolves this lag. */
+@media (max-width: 992px) {
+  .clay-blobs-container {
+    display: none !important;
+  }
+  
+  .clay-blob {
+    animation: none !important;
+  }
+}
+
