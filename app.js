@@ -117,6 +117,9 @@ function initShowcaseTabs() {
 
   function startShowcaseCycle() {
     clearInterval(cycleInterval);
+    // Don't auto-cycle on mobile to prevent the page from looking like it's refreshing
+    if (window.innerWidth <= 992) return;
+    
     cycleInterval = setInterval(() => {
       if (!isHovered && !isUserClicked) {
         currentIndex = (currentIndex + 1) % buttons.length;
@@ -237,6 +240,9 @@ function startWorkflowAnimationLoop() {
   
   // Set first card active initially
   cards[0].classList.add('active');
+
+  // Don't auto-cycle on mobile to prevent flickering/jumping layout illusion
+  if (window.innerWidth <= 992) return;
 
   setInterval(() => {
     // Remove active class from current card
